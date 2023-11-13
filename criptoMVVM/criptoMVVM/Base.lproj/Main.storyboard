@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cryptos-->
+        <!--CryptoVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CryptoVC" customModule="criptoMVVM" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eVG-LH-eZl">
-                                <rect key="frame" x="0.0" y="126" width="414" height="687"/>
+                                <rect key="frame" x="0.0" y="170" width="414" height="643"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cryptoCell" rowHeight="105" id="W40-qN-YXB" customClass="CryptoCell" customModule="criptoMVVM" customModuleProvider="target">
@@ -76,7 +76,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CRYPTOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQc-JO-6Mt">
-                                <rect key="frame" x="20" y="48" width="180" height="77"/>
+                                <rect key="frame" x="20" y="92" width="180" height="77"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="77" id="AGt-kh-izQ"/>
                                 </constraints>
@@ -97,14 +97,14 @@
                             <constraint firstItem="dQc-JO-6Mt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xms-5H-nIe"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Cryptos" image="dollarsign" catalog="system" selectedImage="dollarsign" id="btq-q8-02d"/>
+                    <navigationItem key="navigationItem" id="fUP-N5-PCZ"/>
                     <connections>
                         <outlet property="tableView" destination="eVG-LH-eZl" id="DDa-ip-bOg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="3.3482142857142856"/>
+            <point key="canvasLocation" x="1957.9710144927537" y="3.3482142857142856"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="EZ8-8R-E6r">
@@ -198,13 +198,32 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="38j-yI-Xhw"/>
+                        <segue destination="9BF-cS-REh" kind="relationship" relationship="viewControllers" id="38j-yI-Xhw"/>
                         <segue destination="VV3-AC-nxI" kind="relationship" relationship="viewControllers" id="qwp-uj-xp0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WhD-xR-08O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="3.3482142857142856"/>
+        </scene>
+        <!--Cryptos-->
+        <scene sceneID="Vye-S6-rN1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9BF-cS-REh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cryptos" image="dollarsign" catalog="system" selectedImage="dollarsign" id="btq-q8-02d"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y4q-H8-Aoq">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="L39-wC-TMl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xI3-kX-Fhs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="3.3482142857142856"/>
         </scene>
     </scenes>
     <resources>

@@ -9,15 +9,25 @@ import UIKit
 
 class CryptoVC: UIViewController {
     
+    
     @IBOutlet weak var tableView: UITableView!
     
     let viewModel = CrytoViewModel()
     let favoriteViewModel = FavoriteViewModel()
+    let searchController = UISearchController(searchResultsController: nil)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        tableView.backgroundView = UIView()
+        tableView.backgroundView?.backgroundColor = .clear
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Cryptos"
+        tableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
         
         viewModel.didFinishLoad = { [weak self] in
             DispatchQueue.main.async {
@@ -57,5 +67,14 @@ extension CryptoVC: UITableViewDataSource {
             
         }
         return cell
+    }
+}
+
+extension CryptoVC: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let query = searchController.searchBar.text {
+            viewModel.searchCrypto(query: query)
+            tableView.reloadData()
+        }
     }
 }

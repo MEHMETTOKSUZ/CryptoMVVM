@@ -12,14 +12,15 @@ class CrytoViewModel {
     var didFinishLoad: (() -> Void)?
     var didFinishLaodWithError: ((String) -> Void)?
     var cryptos: [CryptoCell.ViewModel] = []
-    
+    var filteredCryptos: [CryptoCell.ViewModel] = []
+    var isSearching: Bool = false
     
     var numberOfInSection: Int {
-        return cryptos.count
+        return isSearching ? filteredCryptos.count : cryptos.count
     }
     
     func item(at index: Int) -> CryptoCell.ViewModel {
-        return cryptos[index]
+        return isSearching ? filteredCryptos[index] : cryptos[index]
     }
     
     func fetchData() {
@@ -47,6 +48,18 @@ class CrytoViewModel {
         }
         
         self.cryptos = viewModel
+        didFinishLoad?()
+    }
+    
+    func searchCrypto(query: String) {
+        isSearching = !query.isEmpty
+        
+        if isSearching {
+            filteredCryptos = cryptos.filter { crypto in
+                return crypto.currency.lowercased().contains(query.lowercased())
+            }
+        }
+        
         didFinishLoad?()
     }
 }
